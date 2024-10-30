@@ -3,12 +3,10 @@ Dict = {"Sofia" : 1, "Plovdiv" : 2, "Varna" : 3}
 Town = Dict[Town]
 myDict = {1: [5, 7, 8, 12],2: [4.5, 7.5, 10, 13],3: [5.5, 8, 12, 14.5]}
 Town = myDict[Town]
-count = 0; number = 0
-while (count < 20):
+count = 0; number = 0; Prices = {0: 0, 1: 500, 2: 1000, 3: 10000}
+while (count < 4):
+    if Sales >= Prices[count]:
+        Results = Sales * Town[count] / 100; tax = Town[count]
     count = count + 1
-    if Sales >= number:
-        Final = round(count / 5 - 1)
-        Results = Sales * Town[Final] / 100
-    number = number + 500
-print("-"); print("За продажби от", Sales, "комисионната такса е", Town[Final],"%")
-print(Results)
+print("-"); print("\033[1;31;33mЗа продажби от", Sales, "комисионната такса е", tax,"%")
+print('\033[1;31;32m',Results, "лв комисионна такса"); print("\033[0;31;34mОбща сума с комисионна такса:", Sales - tax, "лв")
