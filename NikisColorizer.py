@@ -1,6 +1,3 @@
-from collections import Counter
-
-
 class Colors:
   def __init__(self, color, effect):
     self.color1 = color
