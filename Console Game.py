@@ -1,3 +1,4 @@
+from NikisColorizer import *
 from random import randrange
 import time
 import keyboard
@@ -140,16 +141,31 @@ def MainLoop():
     global Emoji
     global Season
     global Letter
-    global CollectedApples
+    global CollectedApples; CollectedApples = 5
+    global TotalCollectedApples
+    global CurrentDay; CurrentDay = 1
+    global PlayerHunger; PlayerHunger = 10
     while True:
         try:
             SeasonalTime = SeasonalTime + 0.01
-            if Season == "Winter" and SeasonalTime >= 8.5:
+            if Season == "Winter" and SeasonalTime >= 4.5:
                 UpdateGrid("Spring")
+                CurrentDay = CurrentDay + 1
                 Season = "Spring"
-            if Season == "Spring" and SeasonalTime >= 2 and SeasonalTime <= 2.1:
+                SeasonalTime = 0
+                PlayerHunger = CollectedApples / 2.5
+                CollectedApples = 0
+                if CurrentDay == 7:
+                    print(""); print("")
+                    Colors("Yellow", "Bold")
+                    ColorfulText("🎉🏆You Win You Have Survived🏆🎉")
+                    Colors("Green", "Italic")
+                    ColorfulText("You got home safely from this Adventurous Experience\033[00m\033[0;31;32m\nYou are shocked and yet relieved you are fine\n With a great memory and experience to share with your friends and relatives")
+            if Season == "Spring" and SeasonalTime >= 4.5 and SeasonalTime <= 4.6:
+                SeasonalTime = 0
                 # Code Fix / Test
                 #print("hello", SeasonalTime)
+                PlayerHunger = CollectedApples / 2.5
                 UpdateGrid("Winter")
                 AddCollectibles("🔥")
                 Season = "Winter"
@@ -166,9 +182,18 @@ def MainLoop():
                 if Season == "Winter":
                     UpdateRow(Number + 1, Letter, Dict4[Emoji])
                     UpdateRow(Number, Letter, "🙂")
+                if Season == "Winter":
+                    PlayerHunger = PlayerHunger - 0.15
                 if PreviousNumber == "🍎":
                     CollectedApples = CollectedApples + 1
-                print(""); print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples"); print(Season, SeasonalTime)
+                    #TotalCollectedApples = TotalCollectedApples + 1
+                if PlayerHunger < 0:
+                    Colors("Red", "Bold")
+                    ColorfulText("You Failed to survive")
+                    Colors("Green", "Italic")
+                    ColorfulText("You Were Found laying on the ground Starving\033[00m\033[0;31;32m\nYou have been hospitalized and now are ok\n With a bad memory of this tricky adventure")
+                    exit()
+                print("\033[1;31;33mDay", CurrentDay, "| 🍞 Hunger ", round(PlayerHunger)); print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples"); print(Season, SeasonalTime)
                 time.sleep(0.4)
 
 
@@ -181,9 +206,18 @@ def MainLoop():
                 if Season == "Winter":
                     UpdateRow(Number - 1, Letter, Dict4[Emoji])
                     UpdateRow(Number, Letter, "🙂")
+                    PlayerHunger = PlayerHunger - 0.15
                 if PreviousNumber == "🍎":
                     CollectedApples = CollectedApples + 1
-                print(""); print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples")
+                    #TotalCollectedApples = TotalCollectedApples + 1
+                if PlayerHunger < 0:
+                    Colors("Red", "Bold")
+                    ColorfulText("You Failed to survive")
+                    Colors("Green", "Italic")
+                    ColorfulText("You Were Found laying on the ground Starving\033[00m\033[0;31;32m\nYou have been hospitalized and now are ok\n With a bad memory of this tricky adventure")
+                    exit()
+                print("\033[1;31;33mDay", CurrentDay, "| 🍞 Hunger ", round(PlayerHunger));
+                print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples");
                 time.sleep(0.4)
 
             if keyboard.is_pressed("a"):
@@ -195,9 +229,18 @@ def MainLoop():
                 if Season == "Winter":
                     UpdateRow(Number, Letter + 1, Dict4[Emoji])
                     UpdateRow(Number, Letter, "🙂")
+                    PlayerHunger = PlayerHunger - 0.15
                 if PreviousNumber == "🍎":
                     CollectedApples = CollectedApples + 1
-                print(""); print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples")
+                    #TotalCollectedApples = TotalCollectedApples + 1
+                if PlayerHunger < 0:
+                    Colors("Red", "Bold")
+                    ColorfulText("You Failed to survive")
+                    Colors("Green", "Italic")
+                    ColorfulText("You Were Found laying on the ground Starving\033[00m\033[0;31;32m\nYou have been hospitalized and now are ok\n With a bad memory of this tricky adventure")
+                    exit()
+                print("\033[1;31;33mDay", CurrentDay, "| 🍞 Hunger ", round(PlayerHunger));
+                print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples");
                 time.sleep(0.4)
 
             if keyboard.is_pressed("d"):
@@ -209,9 +252,18 @@ def MainLoop():
                 if Season == "Winter":
                     UpdateRow(Number, Letter - 1, Dict4[Emoji])
                     UpdateRow(Number, Letter, "🙂")
+                    PlayerHunger = PlayerHunger - 0.15
                 if PreviousNumber == "🍎":
                     CollectedApples = CollectedApples + 1
-                print(""); print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples")
+                    #TotalCollectedApples = TotalCollectedApples + 1
+                if PlayerHunger < 0:
+                    Colors("Red", "Bold")
+                    ColorfulText("You Failed to survive")
+                    Colors("Green", "Italic")
+                    ColorfulText("You Were Found laying on the ground Starving\033[00m\033[0;31;32m\nYou have been hospitalized and now are ok\n With a bad memory of this tricky adventure")
+                    exit()
+                print("\033[1;31;33mDay", CurrentDay, "| 🍞 Hunger ", round(PlayerHunger));
+                print("\033[1;31;32mYou Have Collected", "🍎", CollectedApples, "\033[1;31;31mApples");
                 time.sleep(0.4)
             time.sleep(0.01)
         except:
