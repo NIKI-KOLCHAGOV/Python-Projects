@@ -12,6 +12,7 @@ class Vec3:
     def z(self):
         return self.e[2]
 
+
     def __neg__(self):
         return Vec3(-self.e[0], -self.e[1], -self.e[2])
 
@@ -43,13 +44,16 @@ class Vec3:
     def length_squared(self):
         return self.e[0] * self.e[0] + self.e[1] * self.e[1] + self.e[2] * self.e[2]
 
+    def unit_vector(self, v):
+        return v / v.length()
+
+    def __str__(self):
+        return f"{self.e[0]} {self.e[1]} {self.e[2]}"
+
 # point3 is just an alias for Vec3, but useful for geometric clarity in the code.
 point3 = Vec3
 
 # Vector Utility Functions
-
-def __str__(self):
-    return f"{self.e[0]} {self.e[1]} {self.e[2]}"
 
 def vec3_add(u, v):
     return Vec3(u.e[0] + v.e[0], u.e[1] + v.e[1], u.e[2] + v.e[2])
@@ -74,5 +78,5 @@ def cross(u, v):
                 u.e[2] * v.e[0] - u.e[0] * v.e[2],
                 u.e[0] * v.e[1] - u.e[1] * v.e[0])
 
-def unit_vector(v):
-    return v / v.length()
+#def unit_vector(v):
+#    return v / v.length()
