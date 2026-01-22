@@ -1,0 +1,34 @@
+What is a Program:
+given instructions in order to get a desired result
+
+What is a Condition:
+A Different path the code could take
+
+What is a Variable:
+A Changing type of data could be number, text or boolean
+
+What are Operators:
+Logic functions for comparing data like arithmetical, comparison and logic
+
+What are Cycles / Repeat:
+Repeating actions in the code
+
+Whats the use of Microbit Radio:
+To transfer and communicate data with other boards
+
+What is debugging:
+A process of finding and removing errors from code
+
+What are 2 type of Errors we can encounter:
+Syntax and Logical errors
+
+Whats an Array:
+A structure of data where we save multiple variables from the same type
+
+What Sensors do we have on the Microbit:
+Accelerometer, Light level, compass, temperature
+
+What is an Event on Microbit:
+Something that gives the start of a code
+
+
